@@ -39,6 +39,7 @@ proguard/
 *.war
 *.ear
 
-target/*
-.swp
-.idea/*
+# vim files
+*.swp
+# intellij idea
+.idea/
