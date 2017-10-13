@@ -38,3 +38,7 @@ proguard/
 *.jar
 *.war
 *.ear
+
+target/*
+.swp
+.idea/*
