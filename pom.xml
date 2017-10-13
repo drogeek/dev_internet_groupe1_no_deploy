@@ -42,7 +42,7 @@
     </parent>
 
     <!-- ADAPTER les coordonnées -->
-    <groupId>fr.univtln.login</groupId>
+    <groupId>fr.univtln.groupe1</groupId>
     <artifactId>app01</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
