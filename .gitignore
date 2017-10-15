@@ -40,5 +40,5 @@ proguard/
 *.ear
 
 target/*
-.swp
+*.swp
 .idea/*
