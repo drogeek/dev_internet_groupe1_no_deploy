@@ -14,4 +14,4 @@ docker run \
        mvn \
        -Duser.home=${USER_HOME_DIR} \
        --settings ${USER_HOME_DIR}/.m2/settings.xml \
-$*
+       $*
