@@ -17,7 +17,7 @@
 		<repository> 
 			<id>bintray-drogeek-d35-mvn</id> 
 			<name>drogeek-d35-mvn</name> 
-			<url>https://api.bintray.com/maven/drogeek/d35-mvn/equipe1/;publish=1</url> 
+			<url>https://api.bintray.com/maven/drogeek/d35-mvn/dev_internet_groupe1/;publish=1</url> 
 		</repository> 
 	</distributionManagement>
     <repositories>
