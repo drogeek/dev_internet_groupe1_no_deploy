@@ -5,7 +5,7 @@
     <properties>
         <!-- Le nom court du projet a utiliser pour github -->
         <projectShortName>dev_internet_groupe1</projectShortName>
-        <github.account>dptinfoutln</github.account>
+        <github.account>drogeek</github.account>
         <!-- utln login for nexus (maven and docker ) repository on lsis -->
         <lsisnexus.login>yann-deshors@etud.univ-tln.fr</lsisnexus.login>
         <!-- the default Main class -->
@@ -132,5 +132,3 @@
         </dependency>
     </dependencies>
 </project>
-
-
