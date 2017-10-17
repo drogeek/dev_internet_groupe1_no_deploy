@@ -36,8 +36,7 @@ after_success:
     ./.travis.scripts/mvn.sh -P github-site site  fi
 deploy:
   provider: script
-  script: "./.travis.scripts/mvn.sh -Dmaven.site.skip=true -P stage-devel-nexus deploy"
-  script: "./.travis.scripts/mvn.sh -Dmaven.site.skip=true -P stage-devel-bintray deploy"
+  script: "./.travis.scripts/mvn.sh -Dmaven.site.skip=true -P bintray-drogeek-d35-mvn deploy"
   skip_cleanup: true
   on:
     all_branches: true
