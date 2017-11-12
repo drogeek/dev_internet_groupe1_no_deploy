@@ -2,26 +2,36 @@ package fr.univtln.groupe1;
 
 
 import org.apache.log4j.PatternLayout;
-import org.slf4j.Logger;
+import org.jboss.weld.environment.se.events.ContainerInitialized;
 import org.slf4j.LoggerFactory;
 
-import java.lang.invoke.MethodHandles;
 
-/**
- * Hello world!
- */
+import javax.annotation.PostConstruct;
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
+import javax.enterprise.event.Observes;
+import java.util.logging.Logger;
+
+@Singleton
+@Startup
 public class App {
-    @SuppressWarnings("unused")
+
     private static final Class[] shadeHack = {org.apache.log4j.RollingFileAppender.class,
             org.apache.log4j.ConsoleAppender.class,
             PatternLayout.class};
 
     //Set the logger with the real class name.
-    private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+    private static Logger logger= Logger.getLogger(App.class.getName());
 
-    public static void main(String[] args) {
-        logger.info("App started.");
-        logger.debug("About to talk :");
-        System.out.println("Hello world !");
+//  Log pour tester le deploiement payara
+//  Fonctionnement a verifier
+    public void test1(@Observes ContainerInitialized event){
+        logger.info("Le test observer sur container fonctionne!");
+    }
+
+    @PostConstruct
+    public void test2(){
+        System.out.println("Sout de test 2");
+        logger.info("Le postConstruc fonctionne(logger)");
     }
 }
