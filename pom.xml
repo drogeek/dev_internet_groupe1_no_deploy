@@ -166,11 +166,5 @@
             <version>9.3-1102-jdbc41</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.jboss.weld.se/weld-se-core -->
-        <dependency>
-            <groupId>org.jboss.weld.se</groupId>
-            <artifactId>weld-se</artifactId>
-            <version>2.4.3.Final</version>
-        </dependency>
     </dependencies>
 </project>

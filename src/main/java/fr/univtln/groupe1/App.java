@@ -2,7 +2,6 @@ package fr.univtln.groupe1;
 
 
 import org.apache.log4j.PatternLayout;
-import org.jboss.weld.environment.se.events.ContainerInitialized;
 import org.slf4j.LoggerFactory;
 
 
@@ -25,10 +24,6 @@ public class App {
 
 //  Log pour tester le deploiement payara
 //  Fonctionnement a verifier
-    public void test1(@Observes ContainerInitialized event){
-        logger.info("Le test observer sur container fonctionne!");
-    }
-
     @PostConstruct
     public void test2(){
         System.out.println("Sout de test 2");
