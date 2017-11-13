@@ -14,3 +14,27 @@ Pour ajouter SonarQube à IntelliJ:
   - Ajouter le serveur avec l'URL précédemment utiliser
   - Saisir ensuite le token généré précédément
 
+#Pour lancer payara:
+```
+make launch-payara
+```
+
+#Pour deployer l'application
+```
+make deploy
+```
+
+#Pour afficher les logs
+```
+make logs
+```
+
+#Pour stoper payara
+```
+make stop
+```
+
+#Pour redémarrer payara
+```
+make restart
+```
