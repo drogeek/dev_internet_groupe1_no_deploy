@@ -2,6 +2,7 @@ target/
 .classpath
 .project
 .settings/
+docker/data/*
 Thumbs.db
  
 # built application files

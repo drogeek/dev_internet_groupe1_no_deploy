@@ -3,7 +3,7 @@
 make launch-payara
 ```
 
-## Pour deployer l'application
+## Pour déployer l'application
 ```
 make deploy
 ```
@@ -13,29 +13,35 @@ make deploy
 make logs
 ```
 
-## Pour stoper payara
+## Pour supprimer payara
 ```
-make stop
+make rm
 ```
 
 ## Pour redémarrer payara
+### (en reconstruisant l'image complétement)
 ```
 make restart
 ```
 
+## Accéder à la base de donnée
+```
+make access_db
+```
+
 Pour l'installation de SonarQube (en Local):
 - Télécharger sonarqube 6.5
-- Extrait l'archive dans /etc/
+- Extraire l'archive dans /etc/
 - Lancer sonar avec la commande suivante:
 /etc/sonarqube/bin/[OS]/sonar.sh console
 - Se connecter à l'URL http://localhost:9000/users avec les identifiants admin et le mot de passe "admin"
 - Créer un token et le copier (on ne peut plus le voir après)
 
 Pour ajouter SonarQube à IntelliJ:
-- Aller Settings/ Plug-In
+- Aller dans Settings/Plug-In
 - Ajouter le plugIn SonarLint
-- Dans settings/SonarLint General Settings:
+- Dans Settings/SonarLint General Settings:
   - Choisir SonarQube
-  - Ajouter le serveur avec l'URL précédemment utiliser
-  - Saisir ensuite le token généré précédément
+  - Ajouter le serveur avec l'URL précédemment utilisée
+  - Saisir ensuite le token généré précédemment
 
