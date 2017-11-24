@@ -13,13 +13,13 @@
     </properties>
     <!-- ADAPTER LES PROPRIETES SUIVANTES -->
 
-	<distributionManagement> 
-		<repository> 
-			<id>bintray-drogeek-d35-mvn</id> 
-			<name>drogeek-d35-mvn</name> 
-			<url>https://api.bintray.com/maven/drogeek/d35-mvn/dev_internet_groupe1/;publish=1</url> 
-		</repository> 
-	</distributionManagement>
+    <distributionManagement>
+        <repository>
+            <id>bintray-drogeek-d35-mvn</id>
+            <name>drogeek-d35-mvn</name>
+            <url>https://api.bintray.com/maven/drogeek/d35-mvn/dev_internet_groupe1/;publish=1</url>
+        </repository>
+    </distributionManagement>
     <repositories>
         <repository>
             <snapshots>
@@ -50,8 +50,8 @@
     <!-- ADAPTER les coordonnées -->
     <groupId>fr.univtln.groupe1</groupId>
     <artifactId>app01</artifactId>
-    <version>1.1-ihm-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <version>1.1-ejb-SNAPSHOT</version>
+    <packaging>war</packaging>
     <!-- ADAPTER les coordonnées -->
 
     <!-- ADAPTER les métadonnées -->
@@ -98,6 +98,12 @@
                     </filters>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.0</version>
+            </plugin>
         </plugins>
     </build>
 
@@ -131,37 +137,61 @@
             <scope>test</scope>
         </dependency>
 
-	<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
         <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>2.0.0.Final</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.18</version>
+            <scope>provided</scope>
         </dependency>
 
-	<dependency>
-		<groupId>org.projectlombok</groupId>
-		<artifactId>lombok</artifactId>
-		<version>1.16.18</version>
-		<scope>provided</scope>
-	</dependency>
+        <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0</version>
+            <scope>provided</scope>
+        </dependency>
 
-        <!-- Pour JPA -->
-        <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.0-api -->
+        <!-- Pour hibernate-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.2.15.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.3-1102-jdbc41</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-servlet</artifactId>
+            <version>1.19</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-json -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+            <version>1.19</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.0-api</artifactId>
-            <version>1.0.1.Final</version>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
         </dependency>
 
-        <!-- Base de données h2 -->
-        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+<!--Pour travailler sur du stable-->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.196</version>
-            <scope>test</scope>
+            <groupId>fr.univtln.groupe1</groupId>
+            <artifactId>app01</artifactId>
+            <version>1.1.0-feature-EJB-10</version>
+            <type>pom</type>
         </dependency>
-    
 
     </dependencies>
 </project>
