@@ -1,5 +1,7 @@
 package fr.univtln.groupe1.metier;
 
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import javax.ws.rs.DefaultValue;
 import javax.xml.bind.annotation.XmlElement;
@@ -7,6 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
+@NoArgsConstructor
 @NamedQueries({@NamedQuery(
         name = "FIND USER",
         query = "select id from User u where u.name = :nameUser and u.pass= :passUser"
@@ -24,6 +27,8 @@ public class User {
     @XmlElement
     @DefaultValue("")
     private String password;
+    @XmlElement
+    private Trainer trainer;
 
     public User(String name, String pwd)
     {
