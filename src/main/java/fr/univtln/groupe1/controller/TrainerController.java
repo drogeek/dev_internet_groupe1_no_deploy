@@ -1,9 +1,6 @@
 package fr.univtln.groupe1.controller;
 
-import fr.univtln.groupe1.ejb.PokemonEJB;
 import fr.univtln.groupe1.ejb.TrainerEJB;
-import fr.univtln.groupe1.metier.Pokemon;
-import fr.univtln.groupe1.metier.Trainer;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -11,7 +8,7 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class PokemonController {
+public class TrainerController {
 
     @Inject
     private TrainerEJB trainerEJB;

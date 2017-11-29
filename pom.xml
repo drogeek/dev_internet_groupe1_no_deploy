@@ -227,8 +227,7 @@
             <artifactId>app01</artifactId>
             <version>1.1.0-feature-EJB-11</version>
             <classifier>classes</classifier>
-            <!--<scope>test</scope>-->
-            <!--<type>war</type>-->
+
         </dependency>
 
     </dependencies>
