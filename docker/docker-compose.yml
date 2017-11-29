@@ -1,0 +1,26 @@
+version: '2'
+services:
+    payara-full:
+        build: mypayara-full
+        ports:
+            - "8080:8080"
+            - "4848:4848"
+        entrypoint:
+            - /opt/payara41/bin/asadmin
+            - start-domain
+            - -v
+        volumes:
+            - ./data/payara:/opt/payara41/glassfish/domains/domain1/autodeploy
+        depends_on:
+            - db
+
+    db:
+        image: postgres:10
+        environment:
+            POSTGRES_PASSWORD: glassfishdbpassword
+            POSTGRES_USER: glassfish
+            PGDATA: /var/lib/postgresql/data/pgdata
+        ports:
+          - "5433:5432"
+        volumes:
+            - ./data/pgdata:/var/lib/postgresql/data/pgdata
