@@ -1,11 +1,31 @@
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:p="http://primefaces.org/ui"
-                template="/templates/mainTemplate.xhtml">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-    <ui:define name="bodyContent">
-        Message : <h:outputLabel value="#{helloBean.message}"/>
-    </ui:define>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
-</ui:composition>
+<h:head>
+    <title> Connexion </title>
+</h:head>
+
+<body>
+<h1> Connexion </h1>
+
+<h:form>
+    <table>
+        <tr>
+            <td><h:outputLabel value="ID :" /></td>
+            <td><h:inputText value="#{trainerController.sTrainerId}"/></td>
+        </tr>
+        <tr>
+            <td><h:outputLabel value="Password :" /></td>
+            <td><h:inputSecret /></td>
+        </tr>
+    </table>
+    <h:commandButton value="Connexion" action="#{trainerController.connexion}" styleClass="submit"/>
+</h:form>
+</body>
+</html>

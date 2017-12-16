@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title> Pokemon list</title>
+</h:head>
+
+<body>
+<h1> Consult pokemon list </h1>
+
+<h:form>
+    <!--<table>-->
+        <!--<tr>-->
+            <!--<td><h:outputLabel value="ID :" /></td>-->
+            <!--<td><h:inputText value="#{trainerController.sTrainerId}"/></td>-->
+        <!--</tr>-->
+    <!--</table>-->
+
+    <h:commandButton value="Actualisation" action="#{trainerController.getPokemons}"/>
+    <h:commandButton value="CreatePokemon" action="#{trainerController.add_pokemon_click}"/>
+    <h:commandButton value="Log out" action="#{trainerController.logout}"/>
+
+</h:form>
+<h:dataTable value="#{trainerController.pokemonList}" var="pk_list" border="1">
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Title"/>
+        </f:facet>
+        <h:outputText value="#{pk_list.nom}"/>
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Level life"/>
+        </f:facet>
+        <h:outputText value="#{pk_list.levelLife}"/>
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Level hunger"/>
+        </f:facet>
+        <h:outputText value="#{pk_list.levelHunger}"/>
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Level fun"/>
+        </f:facet>
+        <h:outputText value="#{pk_list.levelFun}"/>
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Level affection"/>
+        </f:facet>
+        <h:outputText value="#{pk_list.levelAffection}"/>
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="trainer lend"/>
+        </f:facet>
+        <h:outputText value="#{pk_list.trainerLend}"/>
+    </h:column>
+</h:dataTable>
+</body>
+</html>

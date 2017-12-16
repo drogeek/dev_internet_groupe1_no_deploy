@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+              version="2.0">
+    
+   <navigation-rule>
+       <from-view-id>connexion.xhtml</from-view-id>
+       <navigation-case>
+           <from-outcome>accepted</from-outcome>
+           <to-view-id>pokemonList.xhtml</to-view-id>
+       </navigation-case>
+
+   </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>createPokemon.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>add_accepted</from-outcome>
+            <to-view-id>pokemonList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--<navigation-rule>-->
+        <!--<from-view-id>pokemonList.xhtml</from-view-id>-->
+        <!--<navigation-case>-->
+            <!--<from-outcome>log_out</from-outcome>-->
+            <!--<to-view-id>connexion.xhtml</to-view-id>-->
+        <!--</navigation-case>-->
+    <!--</navigation-rule>-->
+</faces-config>
