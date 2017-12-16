@@ -3,6 +3,7 @@ package fr.univtln.groupe1.controller;
 import fr.univtln.groupe1.ejb.TrainerEJB;
 import fr.univtln.groupe1.metier.Pokemon;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
@@ -11,15 +12,18 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Named
-@ApplicationScoped
-public class TrainerController {
+@SessionScoped
+public class TrainerController implements Serializable {
 
-    @Inject
+    @EJB
     private TrainerEJB trainerEJB;
+
+    @SessionScoped
     private List<Pokemon> pokemonList = new ArrayList<>();
 
     @SessionScoped
@@ -61,9 +65,6 @@ public class TrainerController {
 
 //    A mettre dans un autre BEAN!!!
     public void logout() throws IOException {
-
-//        Par securité
-        sTrainerId = "";
 
 //        Invalide la session et retour au depart
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
