@@ -30,6 +30,9 @@ public class TrainerController implements Serializable {
     private String sTrainerId ="";
 
     @RequestScoped
+    private String sTrainerLendId="";
+
+    @RequestScoped
     private String sPokemonName = "";
 
     public String createPokemon(){
@@ -37,6 +40,17 @@ public class TrainerController implements Serializable {
         getPokemons();
         return "add_accepted";
     }
+
+    public void lendPokemon(int pokemonID){
+        trainerEJB.lendPokemon(Integer.valueOf(sTrainerLendId), pokemonID);
+        getPokemons();
+    }
+
+    public void lendPokemon(int idOwner, int pokemonID){
+        trainerEJB.lendPokemon(idOwner, pokemonID);
+        getPokemons();
+    }
+
 
     public void getPokemons (){
         pokemonList = trainerEJB.listPokemon(Integer.valueOf(sTrainerId));
@@ -48,6 +62,14 @@ public class TrainerController implements Serializable {
 
     public void setsTrainerId(String sTrainerId) {
         this.sTrainerId = sTrainerId;
+    }
+
+    public String getsTrainerLendId() {
+        return sTrainerLendId;
+    }
+
+    public void setsTrainerLendId(String sTrainerLendId) {
+        this.sTrainerLendId = sTrainerLendId;
     }
 
     public String getsPokemonName() {

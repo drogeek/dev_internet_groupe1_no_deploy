@@ -15,12 +15,6 @@
 <h1> Consult pokemon list </h1>
 
 <h:form>
-    <!--<table>-->
-        <!--<tr>-->
-            <!--<td><h:outputLabel value="ID :" /></td>-->
-            <!--<td><h:inputText value="#{trainerController.sTrainerId}"/></td>-->
-        <!--</tr>-->
-    <!--</table>-->
 
     <h:commandButton value="Actualisation" action="#{trainerController.getPokemons}"/>
     <h:commandButton value="CreatePokemon" action="#{trainerController.add_pokemon_click}"/>
@@ -68,8 +62,17 @@
         <f:facet name="header">
             <h:outputText value="trainer lend"/>
         </f:facet>
-        <h:outputText value="#{pk_list.trainerLend}"/>
+        <h:outputText value="#{pk_list.trainerLend.id}"/>
     </h:column>
+
+    <h:column>
+        <h:form>
+            <td><h:inputText value="#{trainerController.sTrainerLendId}"/></td>
+            <td><h:commandButton value="Lend" action="#{trainerController.lendPokemon(pk_list.id)}"/></td>
+            <td><h:commandButton value="Return" action="#{trainerController.lendPokemon(pk_list.trainer.id, pk_list.id)}"/></td>
+        </h:form>
+    </h:column>
+
 </h:dataTable>
 </body>
 </html>
