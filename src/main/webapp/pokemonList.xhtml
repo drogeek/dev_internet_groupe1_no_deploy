@@ -17,7 +17,7 @@
 <h:form>
 
     <h:commandButton value="Actualisation" action="#{trainerController.getPokemons}"/>
-    <h:commandButton value="CreatePokemon" action="#{trainerController.add_pokemon_click}"/>
+    <h:commandButton value="Create Pokemon" action="#{trainerController.add_pokemon_click}"/>
     <h:commandButton value="Log out" action="#{trainerController.logout}"/>
 
 </h:form>
@@ -72,7 +72,6 @@
             <td><h:commandButton value="Return" action="#{trainerController.lendPokemon(pk_list.trainer.id, pk_list.id)}"/></td>
         </h:form>
     </h:column>
-
 </h:dataTable>
 </body>
 </html>

@@ -4,12 +4,10 @@ import fr.univtln.groupe1.ejb.TrainerEJB;
 import fr.univtln.groupe1.metier.Pokemon;
 
 import javax.ejb.EJB;
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.IOException;
 import java.io.Serializable;
@@ -96,7 +94,6 @@ public class TrainerController implements Serializable {
 
 //   Il faudrait une vérification du mot de passe
     public String connexion(){
-//        On charge sa liste de pokemon
         getPokemons();
 //        Normalement on check le mot de passe
         return "accepted";
