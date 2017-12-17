@@ -21,6 +21,15 @@
         </navigation-case>
     </navigation-rule>
 
+    <navigation-rule>
+        <from-view-id>createTrainer.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>trainer_created</from-outcome>
+            <to-view-id>pokemonList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
     <!--<navigation-rule>-->
         <!--<from-view-id>pokemonList.xhtml</from-view-id>-->
         <!--<navigation-case>-->

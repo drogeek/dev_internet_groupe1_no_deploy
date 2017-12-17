@@ -33,10 +33,18 @@ public class TrainerController implements Serializable {
     @RequestScoped
     private String sPokemonName = "";
 
+    @RequestScoped
+    private String sTrainerName="";
+
     public String createPokemon(){
         trainerEJB.addPokemonTrainer(Integer.valueOf(sTrainerId), sPokemonName);
         getPokemons();
         return "add_accepted";
+    }
+
+    public String createTrainer(String name){
+        sTrainerId = String.valueOf(trainerEJB.newTrainer(name).getId());
+        return "trainer_created";
     }
 
     public void lendPokemon(int pokemonID){
@@ -82,8 +90,15 @@ public class TrainerController implements Serializable {
         return pokemonList;
     }
 
+    public String getsTrainerName() {
+        return sTrainerName;
+    }
 
-//    A mettre dans un autre BEAN!!!
+    public void setsTrainerName(String sTrainerName) {
+        this.sTrainerName = sTrainerName;
+    }
+
+    //    A mettre dans un autre BEAN!!!
     public void logout() throws IOException {
 
 //        Invalide la session et retour au depart
