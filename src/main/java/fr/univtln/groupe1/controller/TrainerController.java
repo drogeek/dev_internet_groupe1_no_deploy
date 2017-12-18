@@ -4,6 +4,7 @@ import fr.univtln.groupe1.ejb.TrainerEJB;
 import fr.univtln.groupe1.metier.Pokemon;
 
 import javax.ejb.EJB;
+import javax.ejb.EJBException;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
@@ -129,13 +130,15 @@ public class TrainerController implements Serializable {
     }
 
     public void handleException (Throwable exception){
-        String message ="";
-        if (exception instanceof ApplicationError)
-            message = "Erreur applicative connue est survenue: " + exception.getMessage();
-        else if (exception.getMessage()==null)
-            message = "Une erreur est survenue, l'identifiant est incorrect / L'action n'est pas permise";
+        String message;
+        if (exception instanceof EJBException) {
+            if (exception.getMessage()==null)
+                message = "L'action n'est pas autorisée et/ou un mauvaise ID a été saisie";
+            else
+                message = "Erreur applicative (EJB) connue est survenue: " + exception.getMessage();
+        }
         else
-            message = "Une erreur applicative inconnue est survenue: " + exception.getMessage();
+            message = "Une erreur applicative inconnue est survenue: " + exception.getMessage() + exception.getClass();
 
         FacesMessage facesMessage = new FacesMessage(message);
         FacesContext.getCurrentInstance().addMessage(null, facesMessage);
