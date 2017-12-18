@@ -6,6 +6,7 @@ import fr.univtln.groupe1.metier.Pokemon;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
@@ -43,18 +44,31 @@ public class TrainerController implements Serializable {
     }
 
     public String createTrainer(String name){
+        try {
         sTrainerId = String.valueOf(trainerEJB.newTrainer(name).getId());
+        }
+        catch (Throwable t){
+            handleException(t);
+        }
         return "trainer_created";
     }
 
     public void lendPokemon(int pokemonID){
-        trainerEJB.lendPokemon(Integer.valueOf(sTrainerLendId), pokemonID);
-        getPokemons();
+        try {
+            trainerEJB.lendPokemon(Integer.valueOf(sTrainerLendId), pokemonID);
+            getPokemons();
+        } catch (Throwable t){
+            handleException(t);
+        }
     }
 
+//    A renommer
     public void lendPokemon(int idOwner, int pokemonID){
-        trainerEJB.lendPokemon(idOwner, pokemonID);
-        getPokemons();
+        try {trainerEJB.lendPokemon(idOwner, pokemonID);
+        getPokemons();}
+        catch (Throwable t){
+            handleException(t);
+        }
     }
 
 
@@ -112,6 +126,20 @@ public class TrainerController implements Serializable {
         getPokemons();
 //        Normalement on check le mot de passe
         return "accepted";
+    }
+
+    public void handleException (Throwable exception){
+        String message ="";
+        if (exception instanceof ApplicationError)
+            message = "Erreur applicative connue est survenue: " + exception.getMessage();
+        else if (exception.getMessage()==null)
+            message = "Une erreur est survenue, l'identifiant est incorrect / L'action n'est pas permise";
+        else
+            message = "Une erreur applicative inconnue est survenue: " + exception.getMessage();
+
+        FacesMessage facesMessage = new FacesMessage(message);
+        FacesContext.getCurrentInstance().addMessage(null, facesMessage);
+
     }
 
     public String add_pokemon_click(){
