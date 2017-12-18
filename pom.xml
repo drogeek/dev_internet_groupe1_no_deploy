@@ -225,7 +225,7 @@
         <dependency>
             <groupId>fr.univtln.groupe1</groupId>
             <artifactId>app01</artifactId>
-            <version>1.1.0-feature-EJB-11</version>
+            <version>1.1.0-feature-EJB-12</version>
             <classifier>classes</classifier>
 
         </dependency>
