@@ -19,7 +19,8 @@
 
     <h:commandButton value="Actualisation" action="#{trainerController.getPokemons}"/>
     <h:commandButton value="Create Pokemon" action="#{trainerController.add_pokemon_click}"/>
-    <h:commandButton value="Log out" action="#{trainerController.logout}"/>
+    <h:commandButton value="Log out" action="#{applicationController.logout}"/>
+    <h:commandButton value="Test decrease" action="#{pokemonController.decrease_level}"/>
 
 </h:form>
 <h:dataTable value="#{trainerController.pokemonList}" var="pk_list" border="1">

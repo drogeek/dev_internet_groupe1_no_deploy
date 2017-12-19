@@ -113,15 +113,6 @@ public class TrainerController implements Serializable {
         this.sTrainerName = sTrainerName;
     }
 
-    //    A mettre dans un autre BEAN!!!
-    public void logout() throws IOException {
-
-//        Invalide la session et retour au depart
-        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
-        ec.invalidateSession();
-        ec.redirect(ec.getRequestContextPath() + "/connexion.xhtml");
-    }
-
 //   Il faudrait une vérification du mot de passe
     public String connexion(){
         getPokemons();
