@@ -1,6 +1,7 @@
 package fr.univtln.groupe1.controller;
 
 import fr.univtln.groupe1.ejb.TrainerEJB;
+import fr.univtln.groupe1.metier.Item;
 import fr.univtln.groupe1.metier.Pokemon;
 
 import javax.ejb.EJB;
@@ -25,6 +26,9 @@ public class TrainerController implements Serializable {
 
     @SessionScoped
     private List<Pokemon> pokemonList = new ArrayList<>();
+
+    @SessionScoped
+    private List<Item> itemList = new ArrayList<>();
 
     @SessionScoped
     private String sTrainerId ="";
@@ -116,6 +120,7 @@ public class TrainerController implements Serializable {
 //   Il faudrait une vérification du mot de passe
     public String connexion(){
         getPokemons();
+
 //        Normalement on check le mot de passe
         return "accepted";
     }

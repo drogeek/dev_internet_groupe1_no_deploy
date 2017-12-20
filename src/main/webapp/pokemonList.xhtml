@@ -21,6 +21,8 @@
     <h:commandButton value="Create Pokemon" action="#{trainerController.add_pokemon_click}"/>
     <h:commandButton value="Log out" action="#{applicationController.logout}"/>
     <h:commandButton value="Test decrease" action="#{pokemonController.decrease_level}"/>
+    <h:commandButton value="Test item" action="#{itemController.updateItem}"/>
+
 
 </h:form>
 <h:dataTable value="#{trainerController.pokemonList}" var="pk_list" border="1">
@@ -80,5 +82,6 @@
         </h:form>
     </h:column>
 </h:dataTable>
+
 </body>
 </html>
