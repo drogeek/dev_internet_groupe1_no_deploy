@@ -23,7 +23,7 @@ public class PokemonController implements Serializable{
     @RequestScoped
     private String sTrainerId="";
 
-    @Schedule(hour = "*", minute = "*/10", second = "*", info = "Diminution des niveaux de tous les pokemons toutes les 10 minutes")
+    @Schedule(minute = "*/10", info = "Diminution des niveaux de tous les pokemons toutes les 10 minutes")
     public void decrease_level() throws InterruptedException {
         pokemonEJB.recomputeStats();
     }

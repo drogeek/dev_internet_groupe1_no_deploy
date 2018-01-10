@@ -19,7 +19,7 @@ public class ItemController implements Serializable {
     @EJB
     private TrainerEJB trainerEJB;
 
-    @Schedule(hour = "*", minute = "*/10", second = "*", info = "Nouvel item toutes les 10 minutes")
+    @Schedule(minute = "*/10", info = "Nouvel item toutes les 10 minutes")
     public void updateItem(){
         trainerEJB.updateItem();
     }

@@ -77,6 +77,11 @@ public class TrainerController implements Serializable {
         }
     }
 
+    public void actualisation(){
+        getItems();
+        getPokemons();
+    }
+
 
     public void getPokemons (){
         pokemonList = trainerEJB.listPokemon(Integer.valueOf(sTrainerId));
