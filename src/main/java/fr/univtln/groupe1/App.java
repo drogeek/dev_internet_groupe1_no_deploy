@@ -1,5 +1,6 @@
 package fr.univtln.groupe1;
 
+import fr.univtln.groupe1.ejb.PokemonEJB;
 import org.apache.log4j.PatternLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,7 @@ public class App {
 //  Log pour tester le deploiement payara
 //  Fonctionnement a verifier
     @Inject
-    PokemonEJB pokemonEJB;
+PokemonEJB pokemonEJB;
 
     public static void main(String[] args) {
 
