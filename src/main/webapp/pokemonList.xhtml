@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title> Pokemon list</title>
+</h:head>
+
+<body>
+<h1> Consult pokemon list </h1>
+<h2><h:outputText value="#{trainerController.sTrainerId}"/></h2>
+
+<h:form>
+
+    <h:commandButton value="Actualisation" action="#{trainerController.actualisation}"/>
+    <h:commandButton value="Create Pokemon" action="#{trainerController.add_pokemon_click}"/>
+    <h:commandButton value="Log out" action="#{applicationController.logout}"/>
+    <h:commandButton value="Test decrease" action="#{pokemonController.decrease_level}"/>
+    <h:commandButton value="Test item" action="#{itemController.updateItem}"/>
+    <h:commandButton value="Liste item" action="#{trainerController.getItems}"/>
+
+
+</h:form>
+<h:dataTable value="#{trainerController.pokemonList}" var="pk_list" border="1">
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Title"/>
+        </f:facet>
+        <h:outputText value="#{pk_list.nom}"/>
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Level life"/>
+        </f:facet>
+        <h:outputText value="#{pk_list.levelLife}"/>
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Level hunger"/>
+        </f:facet>
+        <h:outputText value="#{pk_list.levelHunger}"/>
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Level fun"/>
+        </f:facet>
+        <h:outputText value="#{pk_list.levelFun}"/>
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Level affection"/>
+        </f:facet>
+        <h:outputText value="#{pk_list.levelAffection}"/>
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="trainer lend / id "/>
+        </f:facet>
+        <h:outputText value="#{pk_list.trainerLend.name}"/>
+        <h:outputText value=" #{pk_list.trainerLend.id}"/>
+    </h:column>
+
+    <h:column>
+        <h:form>
+            <td><h:inputText value="#{pokemonController.sItemId}">
+                <f:validateRegex pattern="^[0-9][0-9]*$"/></h:inputText>
+            </td>
+            <td><h:commandButton value="Use" action="#{pokemonController.useItem(pokemonController.sItemId, pk_list.id)}"/></td>
+        </h:form>
+    </h:column>
+
+    <h:column>
+        <h:form>
+            <td><h:inputText value="#{trainerController.sTrainerLendId}">
+                <f:validateRegex pattern="^[0-9][0-9]*$"/></h:inputText>
+            </td>
+            <td><h:commandButton value="Lend" action="#{trainerController.lendPokemon(pk_list.id)}"/></td>
+        </h:form>
+        <h:form>
+            <td><h:commandButton value="Return" action="#{trainerController.lendPokemon(pk_list.trainer.id, pk_list.id)}"/></td>
+        </h:form>
+    </h:column>
+</h:dataTable>
+
+<h:dataTable value="#{trainerController.itemList}" var="it_list" border="1">
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Id"/>
+        </f:facet>
+        <h:outputText value="#{it_list.id}"/>
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Title"/>
+        </f:facet>
+        <h:outputText value="#{it_list.name}"/>
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Level"/>
+        </f:facet>
+        <h:outputText value="#{it_list.level}"/>
+    </h:column>
+
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Value"/>
+        </f:facet>
+        <h:outputText value="#{it_list.value}"/>
+    </h:column>
+
+</h:dataTable>
+
+</body>
+</html>

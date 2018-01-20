@@ -1,8 +1,10 @@
 package fr.univtln.groupe1;
 
-
-import fr.univtln.groupe1.ejb.PokemonEJB;
-import fr.univtln.groupe1.metier.Pokemon;
+import org.apache.log4j.PatternLayout;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.lang.invoke.MethodHandles;
+import fr.univtln.groupe1.metier.*;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
@@ -26,9 +28,9 @@ public class App {
     @Inject
     PokemonEJB pokemonEJB;
 
-    @PostConstruct
-    public void test2(){
-        Pokemon pokemon = new Pokemon("Kirby");
-        pokemonEJB.addPokemon(pokemon);
+    public static void main(String[] args) {
+
+        Trainer trainer = new Trainer("truc");
+
     }
 }

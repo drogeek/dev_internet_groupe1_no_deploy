@@ -1,8 +1,8 @@
 launch-payara:
 	cd docker ; mkdir -p data/payara ; chmod -R o+rw data; docker-compose up -d payara-full
 deploy:
-	export MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1" ; mvn -T 1C package
-	cp target/app01-1.1-SNAPSHOT.war docker/data/payara/
+	export MAVEN_OPTS="-XX:+TieredCompilation -XX:TieredStopAtLevel=1" ; mvn -T 1C clean package
+	cp target/app01-1.1-n_osql__dynamo_db-SNAPSHOT.war docker/data/payara/
 rm:
 	cd docker ; docker-compose down
 restart:

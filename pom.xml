@@ -3,6 +3,9 @@
 
     <!-- ADAPTER LES PROPRIETES SUIVANTES -->
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <primefaces.version>5.0</primefaces.version>
+
         <!-- Le nom court du projet a utiliser pour github -->
         <projectShortName>dev_internet_groupe1</projectShortName>
         <github.account>drogeek</github.account>
@@ -28,6 +31,12 @@
             <id>bintray-dptinfoutln-public</id>
             <name>bintray</name>
             <url>https://dl.bintray.com/dptinfoutln/public</url>
+        </repository>
+
+        <repository>
+            <id>prime-repo</id>
+            <name>PrimeFaces Maven Repository</name>
+            <url>http://repository.primefaces.org</url>
         </repository>
     </repositories>
     <pluginRepositories>
@@ -104,9 +113,26 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
-                    <webXml>src\WEB-INF\web.xml</webXml>
+                    <attachClasses>true</attachClasses>
+                    <classesClassifier>classes</classesClassifier>
                 </configuration>
             </plugin>
+<!--pour intégrer un war en dependency, à ajouter au pom du projet war qu'on fait venir-->
+            <!--<plugin>-->
+                <!--<artifactId>maven-war-plugin</artifactId>-->
+                <!--<version>2.1.1</version>-->
+                <!--<configuration>-->
+                    <!--<attachClasses>true</attachClasses>-->
+                    <!--<classesClassifier>classes</classesClassifier>-->
+                    <!--&lt;!&ndash;<overlays>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<overlay>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<groupId>fr.univtln.groupe1</groupId>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<artifactId>app01</artifactId>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</overlay>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</overlays>&ndash;&gt;-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+
         </plugins>
     </build>
 
@@ -168,11 +194,16 @@
             <version>9.3-1102-jdbc41</version>
         </dependency>
 
-
-        <!-- Pour test-->
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-servlet</artifactId>
+            <version>1.19</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-json -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
             <version>1.19</version>
         </dependency>
 
@@ -181,6 +212,21 @@
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
             <version>1.0.0.Final</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>${primefaces.version}</version>
+        </dependency>
+
+<!--Pour travailler sur du stable-->
+        <dependency>
+            <groupId>fr.univtln.groupe1</groupId>
+            <artifactId>app01</artifactId>
+            <version>1.1.0-feature-EJB-16</version>
+            <classifier>classes</classifier>
         </dependency>
 
     </dependencies>
