@@ -1,33 +1,22 @@
 package fr.univtln.groupe1;
 
-import fr.univtln.groupe1.ejb.PokemonEJB;
 import org.apache.log4j.PatternLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.lang.invoke.MethodHandles;
 import fr.univtln.groupe1.metier.*;
 
-import javax.annotation.PostConstruct;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
-import javax.inject.Inject;
-
-@Singleton
-@Startup
+/**
+ * Hello world!
+ */
 public class App {
-
-
-//    private static final Class[] shadeHack = {org.apache.log4j.RollingFileAppender.class,
-//            org.apache.log4j.ConsoleAppender.class,
-//            PatternLayout.class};
+    @SuppressWarnings("unused")
+    private static final Class[] shadeHack = {org.apache.log4j.RollingFileAppender.class,
+            org.apache.log4j.ConsoleAppender.class,
+            PatternLayout.class};
 
     //Set the logger with the real class name.
-//    private static Logger logger= Logger.getLogger(App.class.getName());
-
-//  Log pour tester le deploiement payara
-//  Fonctionnement a verifier
-    @Inject
-PokemonEJB pokemonEJB;
+    private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     public static void main(String[] args) {
 

@@ -59,7 +59,7 @@
     <!-- ADAPTER les coordonnées -->
     <groupId>fr.univtln.groupe1</groupId>
     <artifactId>app01</artifactId>
-    <version>1.1-n_osql__dynamo_db-SNAPSHOT</version>
+    <version>1.1.0-feature-n_osql__dynamo_db-SNAPSHOT</version>
     <packaging>war</packaging>
     <!-- ADAPTER les coordonnées -->
 
@@ -117,20 +117,20 @@
                     <classesClassifier>classes</classesClassifier>
                 </configuration>
             </plugin>
-<!--pour intégrer un war en dependency, à ajouter au pom du projet war qu'on fait venir-->
+            <!--pour intégrer un war en dependency, à ajouter au pom du projet war qu'on fait venir-->
             <!--<plugin>-->
-                <!--<artifactId>maven-war-plugin</artifactId>-->
-                <!--<version>2.1.1</version>-->
-                <!--<configuration>-->
-                    <!--<attachClasses>true</attachClasses>-->
-                    <!--<classesClassifier>classes</classesClassifier>-->
-                    <!--&lt;!&ndash;<overlays>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<overlay>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<groupId>fr.univtln.groupe1</groupId>&ndash;&gt;-->
-                            <!--&lt;!&ndash;<artifactId>app01</artifactId>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</overlay>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</overlays>&ndash;&gt;-->
-                <!--</configuration>-->
+            <!--<artifactId>maven-war-plugin</artifactId>-->
+            <!--<version>2.1.1</version>-->
+            <!--<configuration>-->
+            <!--<attachClasses>true</attachClasses>-->
+            <!--<classesClassifier>classes</classesClassifier>-->
+            <!--&lt;!&ndash;<overlays>&ndash;&gt;-->
+            <!--&lt;!&ndash;<overlay>&ndash;&gt;-->
+            <!--&lt;!&ndash;<groupId>fr.univtln.groupe1</groupId>&ndash;&gt;-->
+            <!--&lt;!&ndash;<artifactId>app01</artifactId>&ndash;&gt;-->
+            <!--&lt;!&ndash;</overlay>&ndash;&gt;-->
+            <!--&lt;!&ndash;</overlays>&ndash;&gt;-->
+            <!--</configuration>-->
             <!--</plugin>-->
 
         </plugins>
@@ -221,7 +221,7 @@
             <version>${primefaces.version}</version>
         </dependency>
 
-<!--Pour travailler sur du stable-->
+        <!--Pour travailler sur du stable-->
         <dependency>
             <groupId>fr.univtln.groupe1</groupId>
             <artifactId>app01</artifactId>
