@@ -29,6 +29,19 @@ make restart
 make access_db
 ```
 
+## API REST
+    /item/{id}
+    /pokemon/update
+    /trainer/{id}/pokemons
+    /trainer/{id}/items
+    /trainer/{id}/createItem
+    /trainer/{id}/addPokemon/{nomPokemon}
+    /trainer/lend/{idTrainer}/{idPokemon}
+    /trainer/delTrainer/{id}
+    /trainer/updateItem
+    /trainer/all
+    /trainer/newTrainer/{name}
+
 Pour l'installation de SonarQube (en Local):
 - Télécharger sonarqube 6.5
 - Extraire l'archive dans /etc/

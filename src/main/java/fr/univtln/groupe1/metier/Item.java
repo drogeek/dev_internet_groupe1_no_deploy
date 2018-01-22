@@ -1,10 +1,17 @@
 package fr.univtln.groupe1.metier;
 
 
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Random;
 
 @Entity
+@XmlRootElement
+@NoArgsConstructor
 public class Item {
 
     public enum Type {FOOD, OBJECT}
@@ -12,6 +19,7 @@ public class Item {
     public enum Name{Salad, Toy}
 
     @GeneratedValue
+    @XmlElement
     @Id
     private int id;
 
@@ -28,13 +36,13 @@ public class Item {
 
     private int value;
 
-    public Item(Type type, Name name, int level) {
+    @Builder
+    public Item(Type type, Name name) {
         this.type = type;
         this.name = name;
-        this.level = level;
+        this.setLevel();
+        this.setValue(this.getLevel());
     }
-
-    public Item(){}
 
 //    Le niveau est généré aléatoirement
     public int getLevel() {
@@ -52,11 +60,11 @@ public class Item {
     }
 
 //    Niveau 1 -> 10*1
-//    Niveau 3 -> 10*3 (10 est la valeur de base maximale)
+//    Niveau 3 -> 10+10*3 (10 est la valeur de base maximale)
     public void setValue(int level) {
         Random r = new Random();
         int valueBase = r.nextInt(10)+1;
-        this.value = valueBase*level;
+        this.value = valueBase+10*level;
     }
 
     public Type getType() {
@@ -77,6 +85,10 @@ public class Item {
 
     public void setTrainer(Trainer trainer) {
         this.trainer = trainer;
+    }
+
+    public int getId() {
+        return id;
     }
 
     @Override

@@ -1,47 +1,70 @@
 package fr.univtln.groupe1.metier;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.codehaus.jackson.annotate.JsonIgnore;
+
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
+@NamedQuery(name="FIND_ALL", query="select p from Pokemon p")
+@NoArgsConstructor
 public class Pokemon {
 
-    private static final int VALUE_MAX  = 100;
+    public static final int VALUE_MAX  = 100;
 
     @GeneratedValue
     @Id
+    @Getter
     @XmlElement
     private int id;
+
+    @Getter @Setter
     @XmlElement
     private String nom;
 
     @ManyToOne
+    @Getter @Setter
+    @JsonIgnore
     private Trainer trainer;
+
+    @OneToOne
+    private Trainer trainerLend = null;
 
 //    TODO
 //    Rajouter le type espece
 //    Fonction ajoutant/enlevant pourcentage niveau
 
+    @Getter @Setter
+    @XmlElement
     private int levelLife;
+    @Getter @Setter
+    @XmlElement
     private int levelFun;
+    @Getter @Setter
+    @XmlElement
     private int levelAffection;
+    @Getter @Setter
+    @XmlElement
     private int levelHunger;
 
-    public Pokemon(){}
+    @Builder
     public Pokemon(String nom) {
         this.nom = nom;
         this.levelLife = VALUE_MAX;
         this.levelFun = VALUE_MAX;
         this.levelAffection = VALUE_MAX;
 //        Pas d'affection au début
-        this.levelHunger = 0;
+        this.levelHunger = VALUE_MAX;
 
     }
+
+
 
     public void setTrainer(Trainer trainer){
         this.trainer = trainer;
@@ -87,7 +110,23 @@ public class Pokemon {
 
     }
 
-//    Egaux si un dresseur a 2 pokemons ayant le meme nom
+    public int getId() {
+        return id;
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public Trainer getTrainerLend() {
+        return trainerLend;
+    }
+
+    public void setTrainerLend(Trainer trainerLend) {
+        this.trainerLend = trainerLend;
+    }
+
+    //    Egaux si un dresseur a 2 pokemons ayant le meme nom
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
