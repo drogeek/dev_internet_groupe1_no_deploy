@@ -1,12 +1,11 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <!-- ADAPTER LES PROPRIETES SUIVANTES -->
     <properties>
         <!-- Le nom court du projet a utiliser pour github -->
         <projectShortName>dev_internet_groupe1</projectShortName>
-        <github.account>dptinfoutln</github.account>
+        <github.account>drogeek</github.account>
         <!-- utln login for nexus (maven and docker ) repository on lsis -->
         <lsisnexus.login>yann-deshors@etud.univ-tln.fr</lsisnexus.login>
         <!-- the default Main class -->
@@ -14,6 +13,13 @@
     </properties>
     <!-- ADAPTER LES PROPRIETES SUIVANTES -->
 
+    <distributionManagement>
+        <repository>
+            <id>bintray-drogeek-d35-mvn</id>
+            <name>drogeek-d35-mvn</name>
+            <url>https://api.bintray.com/maven/drogeek/d35-mvn/dev_internet_groupe1/;publish=1</url>
+        </repository>
+    </distributionManagement>
     <repositories>
         <repository>
             <snapshots>
@@ -44,13 +50,13 @@
     <!-- ADAPTER les coordonnées -->
     <groupId>fr.univtln.groupe1</groupId>
     <artifactId>app01</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <version>1.1</version>
+    <packaging>war</packaging>
     <!-- ADAPTER les coordonnées -->
 
     <!-- ADAPTER les métadonnées -->
     <name>dev_internet_groupe1</name>
-    <description></description>
+    <description />
     <url>https://${github.account}.github.io/dev_internet_groupe1/</url>
     <inceptionYear>2017</inceptionYear>
 
@@ -92,6 +98,16 @@
                     </filters>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                   <attachClasses>true</attachClasses>
+                   <classesClassifier>classes</classesClassifier>
+               </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -124,5 +140,54 @@
             <artifactId>junit-vintage-engine</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.18</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Pour hibernate-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.2.15.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.3-1102-jdbc41</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-servlet</artifactId>
+            <version>1.19</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-json -->
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+            <version>1.19</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
+
     </dependencies>
 </project>

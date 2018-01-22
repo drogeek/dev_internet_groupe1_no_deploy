@@ -2,6 +2,7 @@ target/
 .classpath
 .project
 .settings/
+docker/data/*
 Thumbs.db
  
 # built application files
@@ -41,5 +42,4 @@ proguard/
 
 # vim files
 *.swp
-# intellij idea
-.idea/
+*.swo
