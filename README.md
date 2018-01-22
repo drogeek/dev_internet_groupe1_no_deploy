@@ -5,7 +5,7 @@ make launch-payara
 
 ## Pour déployer l'application
 ```
-make deploy
+make deploy FILE=nomdufichier.war
 ```
 
 ## Pour afficher les logs
