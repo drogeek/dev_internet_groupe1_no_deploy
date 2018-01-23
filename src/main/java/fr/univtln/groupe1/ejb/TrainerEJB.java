@@ -47,6 +47,16 @@ public class TrainerEJB {
         return query.getResultList();
     }
 
+
+    @Path("/{idTrainer}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Trainer getTrainer(@PathParam("idTrainer") int idTrainer){
+        TypedQuery<Trainer> query = em.createNamedQuery("FIND_TRAINER",Trainer.class)
+            .setParameter("idTrainer", idTrainer);
+        return query.getSingleResult();
+    }
+
     @Path("/{idTrainer}/items")
     @GET
     @Produces(MediaType.APPLICATION_JSON)

@@ -32,6 +32,7 @@ make access_db
 ## API REST
     /item/{id}
     /pokemon/update
+    /trainer/{id}
     /trainer/{id}/pokemons
     /trainer/{id}/items
     /trainer/{id}/createItem
