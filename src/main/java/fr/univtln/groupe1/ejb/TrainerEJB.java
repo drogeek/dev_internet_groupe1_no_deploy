@@ -19,8 +19,6 @@ import java.util.logging.Logger;
 @javax.persistence.Table(name = "trainer", catalog = "db1", schema = "public")
 @Stateless
 @Path("/trainer")
-@javax.ws.rs.Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-@javax.ws.rs.Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 public class TrainerEJB {
 
     private static Logger logger =Logger.getLogger(TrainerEJB.class.getName());
@@ -42,6 +40,7 @@ public class TrainerEJB {
     //    Retourne la liste des pokemons d'un dresseur
     @Path("/{idTrainer}/pokemons")
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public List<Pokemon> listPokemon(@PathParam("idTrainer") int idTrainer){
         TypedQuery<Pokemon> query = em.createNamedQuery("FIND POKEMONS_TRAINER", Pokemon.class)
                 .setParameter("idTrainer", idTrainer);
@@ -50,6 +49,7 @@ public class TrainerEJB {
 
     @Path("/{idTrainer}/items")
     @GET
+    @Produces(MediaType.APPLICATION_JSON)
     public List<Item> listItem(@PathParam("idTrainer") int idTrainer){
         TypedQuery<Item> query = em.createNamedQuery("FIND ITEMS_TRAINER", Item.class)
                 .setParameter("idTrainer", idTrainer);
@@ -59,6 +59,7 @@ public class TrainerEJB {
 //    Creation d'un nouvel entraineur
     @Path("/newTrainer/{name}")
     @POST
+    @Produces(MediaType.APPLICATION_JSON)
     public Trainer newTrainer(@PathParam("name") String nom){
         Trainer trainer = Trainer.builder().name(nom).build();
         em.persist(trainer);
@@ -71,6 +72,7 @@ public class TrainerEJB {
 // AJout d'un item à un dresseur
     @Path("/{idTrainer}/createItem")
     @PUT
+    @Produces(MediaType.APPLICATION_JSON)
     public Item createItemTrainer(@PathParam("idTrainer") int idTrainer){
         Item item = factoryItem.createItem();
         Trainer trainer = em.find(Trainer.class, idTrainer);
