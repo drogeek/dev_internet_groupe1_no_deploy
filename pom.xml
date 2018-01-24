@@ -229,5 +229,20 @@
             <classifier>classes</classifier>
         </dependency>
 
+        <!-- nosql clé valeur -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-dynamodb</artifactId>
+            <version>1.11.267</version>
+        </dependency>
+        <!--Pour amazon version 1.2 voulue de ça-->
+        <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
+
+
     </dependencies>
 </project>

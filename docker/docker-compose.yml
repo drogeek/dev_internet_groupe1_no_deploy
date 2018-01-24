@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
     payara-full:
         build: mypayara-full
@@ -13,6 +13,7 @@ services:
             - ./data/payara:/opt/payara41/glassfish/domains/domain1/autodeploy
         depends_on:
             - db
+            - dynamodb
 
     db:
         image: postgres:10
@@ -24,3 +25,11 @@ services:
           - "5433:5432"
         volumes:
             - ./data/pgdata:/var/lib/postgresql/data/pgdata
+
+    dynamodb:
+        ports:
+          - "8000:8000"
+        expose:
+          - "8000"
+        command: -sharedDb -port 8000
+        image: cnadiminti/dynamodb-local

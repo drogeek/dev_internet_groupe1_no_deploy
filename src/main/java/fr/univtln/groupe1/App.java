@@ -6,9 +6,12 @@ import org.slf4j.LoggerFactory;
 import java.lang.invoke.MethodHandles;
 import fr.univtln.groupe1.metier.*;
 
+import javax.ejb.Startup;
+
 /**
  * Hello world!
  */
+
 public class App {
     @SuppressWarnings("unused")
     private static final Class[] shadeHack = {org.apache.log4j.RollingFileAppender.class,
@@ -16,11 +19,17 @@ public class App {
             PatternLayout.class};
 
     //Set the logger with the real class name.
-    private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+//    private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     public static void main(String[] args) {
 
-        Trainer trainer = new Trainer("truc");
+//        Trainer trainer = new Trainer("truc");
 
+        System.out.println("Test dynamoDB");
+//        logger.info("Test dynamoDB _info");
+//        logger.debug("Test dynamoDB _debug");
+//        logger.warn("Test dynamoDB _warning");
+        dynamodb dynam = new dynamodb();
+        dynam.Creation();
     }
 }

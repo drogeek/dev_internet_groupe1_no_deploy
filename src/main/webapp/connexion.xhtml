@@ -15,22 +15,33 @@
 <h1> Connexion </h1>
 
 <h:form>
-    <table>
-        <tr>
-            <td><h:outputLabel value="ID :" /></td>
-            <td><h:inputText value="#{trainerController.sTrainerId}">
-            <f:validateRegex pattern="^[0-9][0-9]*$"/></h:inputText>
-            </td>
-        </tr>
-        <tr>
-            <td><h:outputLabel value="Password :" /></td>
-            <td><h:inputSecret /></td>
-        </tr>
-    </table>
-    <h:commandButton value="Connexion" action="#{trainerController.connexion}"/>
+    <h:commandButton value="Dynamodb création " action="#{applicationController.KeyValueDB}"/>
 </h:form>
+
 <h:form>
-    <h:commandButton value="New Trainer" action="createTrainer"/>
+    <h:commandButton value="Dynamodb ajout données " action="#{applicationController.AjoutData}"/>
 </h:form>
+
+<h:form>
+    <table>
+    <tr>
+        <td><h:outputLabel value="Nom de restaurant :" /></td>
+        <td><h:inputText value="#{applicationController.sNameResto}">
+            </h:inputText>
+        </td>
+    </tr>
+    </table>
+    <h:commandButton value="Dynamodb accès" action="#{applicationController.KeyValueGetItems}"/>
+</h:form>
+
+
+<h:dataTable value="#{applicationController.tListe}" var="resto_list" border="1">
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Restaurant"/>
+        </f:facet>
+        <h:outputText value="#{resto_list}"/>
+    </h:column>
+</h:dataTable>
 </body>
 </html>

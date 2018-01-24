@@ -1,5 +1,11 @@
 FROM payara/server-full:173
 
+ENV AWS_ACCESS_KEY_ID=admin
+
+ENV AWS_SECRET_ACCESS_KEY=admin
+
+EXPOSE 8000
+
 RUN wget https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar \
          -O /opt/payara41/glassfish/domains/domain1/lib/postgresql.jar && \
     /opt/payara41/bin/asadmin start-domain && \
