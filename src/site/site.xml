@@ -11,7 +11,7 @@
                 <name>Maven Fluido Skin</name>
                 <alt>Maven Fluido Skin</alt>
                 <src>/images/topbar-logo.png</src>
-                <href>/index.html</href>
+                <href>/index.xhtml</href>
             </topBarIcon-->
             <topBarContainerStyle>width: 90%;</topBarContainerStyle>
             <navBarStyle>navbar-inverse</navBarStyle>
